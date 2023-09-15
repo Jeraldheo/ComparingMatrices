@@ -13,7 +13,11 @@ namespace ComparingMatrices
 
             int countGreaterElements1 = CountGreaterElements(matrix1, matrix2);
             int countEqualElements    = CountEqualElements(matrix1, matrix2);
+            int countGreaterElements2 = CountSmallerElements(countGreaterElements1, countEqualElements, matrix1.Length);
 
+            Console.WriteLine($"El arreglo 1 contiene {countGreaterElements1} elementos mayores");
+            Console.WriteLine($"El arreglo 2 contiene {countGreaterElements2} elementos mayores");
+            Console.WriteLine($"Existen {countEqualElements} elementos iguales en ambos arreglos");
         }
 
         public static int CountGreaterElements(int[,] matrix1, int[,] matrix2)
