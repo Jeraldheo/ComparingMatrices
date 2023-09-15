@@ -62,5 +62,25 @@ namespace TestComparingMatrices
             int count = Program.CountEqualElements(matrix1, matrix2);
             Assert.Equal(expectedCount, count);
         }
+
+        public static IEnumerable<object[]> ExpectedCount_Matrix1_Matrix2
+            => new[]
+            {
+                new object[]{2, new int[,] { { 17, 9, 36 }, { 8, 7, 3 }, { 15, 28, 87 } },
+                                new int[,] { { 9, 21, 36 }, { 16, 65, 4 }, { 12, 28, 31 } }},
+
+                new object[]{1, new int[,] { { 9, 21, 36 }, { 16, 65, 4 }, { 12, 28, 31 }},
+                                new int[,] { { 9, 92, 30 }, { 81, 72, 3 }, { 15, 25, 87 } }},
+
+            };
+
+        [Theory]
+        [MemberData(nameof(ExpectedCount_Matrix1_Matrix2))]
+        public void Test_Matrix1_Matrix2_Return_Count_Equal_Elements
+             (int expectedCount, int[,] matrix1, int[,] matrix2)
+        {
+            int count = Program.CountEqualElements(matrix1, matrix2);
+            Assert.Equal(expectedCount, count);
+        }
     }
 }

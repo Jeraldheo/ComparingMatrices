@@ -8,6 +8,11 @@ namespace ComparingMatrices
     {
         static void Main(string[] args)
         {
+            int[,] matrix1 = new int[,] { { 17, 9, 36 }, { 8, 7, 3 }, { 15, 28, 87 } };
+            int[,] matrix2 = new int[,] { { 9, 21, 36 }, { 16, 65, 4 }, { 12, 28, 31 } };
+
+            int countGreaterElements1 = CountGreaterElements(matrix1, matrix2);
+            int countEqualElements    = CountEqualElements(matrix1, matrix2);
 
         }
 
@@ -40,6 +45,13 @@ namespace ComparingMatrices
                     }
                 }
             }
+            return count;
+        }
+
+        public static int CountSmallerElements(int countGreater, int countEqual, int matrixNumElements)
+        {
+            int count = 0;
+            count = matrixNumElements - (countGreater + countEqual);
             return count;
         }
     }
